@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
     this.cardsService.getShuffledDeck().subscribe( results=> {
         this.deck=results;
         console.log("moje rezultaty:", this.deck)
-    this.cardsService.getCards(this.deck.deck_id).subscribe(results =>{
-      this.twoCards=results;
-      console.log("dwie karty:", this.twoCards);
+        this.cardsService.getCards(this.deck.deck_id).subscribe(results =>{
+          this.twoCards=results;
+          console.log("dwie karty:", this.twoCards);
+        });
     });
   }
-
 }
