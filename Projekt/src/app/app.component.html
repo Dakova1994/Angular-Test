@@ -18,3 +18,9 @@
   </li>
 </ul>
 
+<h2>Here is your cards</h2>
+<ul *ngIf="deck && twoCards">  
+  {{deck.deck_id}}<img src="{{twoCards.cards[0].image}}">
+</ul>
+
+
