@@ -10,7 +10,7 @@ import { CardsService } from './app.service';
     AppComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule
+    BrowserModule, HttpClientModule
   ],
   providers: [CardsService],
   bootstrap: [AppComponent]

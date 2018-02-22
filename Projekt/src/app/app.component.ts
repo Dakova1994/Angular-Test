@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
             this.deck = shuffledDeck ;
             console.log('moje rezultaty:', this.deck);
-            this.cardsService.getCards(this.deck.deck_id, this.deck.remaining).subscribe( newCards  =>{
+            this.cardsService.getCards(this.deck.deck_id, this.deck.remaining).subscribe( newCards  => {
                 this.twoCards = newCards ;
                 console.log('dwie karty:', this.twoCards);
             });

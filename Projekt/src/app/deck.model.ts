@@ -1,11 +1,11 @@
-export interface IDeck{
+export interface IDeck {
     success: boolean;
     deck_id: string;
     shuffled: boolean;
     remaining: number;
 }
 
-export interface ICards{
+export interface ICards {
     success: boolean;
     cards: [
         {
@@ -14,7 +14,7 @@ export interface ICards{
             suit: string;
             code: string;
         }
-    ],
+    ];
     deck_id: string;
     remaining: number;
 }
