@@ -19,8 +19,12 @@
 </ul>
 
 <h2>Here is your cards</h2>
-<ul *ngIf="deck && twoCards">  
-  {{deck.deck_id}}<img src="{{twoCards.cards[0].image}}">
-</ul>
-
-
+<div *ngIf="deck && pile">
+  <div *ngFor="let card of pile.cards">
+    <img src="{{card.image}}">
+  </div>
+</div>
+<div>
+  <input type="number" (input)="cardsNumber = $event.target.value" min="1" max="52">
+</div>
+<button (click)="onClickMe()">Click me!</button>

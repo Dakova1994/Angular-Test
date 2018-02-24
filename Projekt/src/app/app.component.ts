@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService} from './app.service';
-import { IDeck, ICards } from './deck.model';
+import { IDeck, IPile } from './deck.model';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,21 @@ import { IDeck, ICards } from './deck.model';
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    twoCards: ICards;
+    pile: IPile;
     deck: IDeck;
+    cardsNumber: number=1;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
             this.deck = shuffledDeck ;
-            console.log('moje rezultaty:', this.deck);
-            this.cardsService.getCards(this.deck.deck_id, this.deck.remaining).subscribe( newCards  => {
-                this.twoCards = newCards ;
-                console.log('dwie karty:', this.twoCards);
-            });
         });
+    }
+    onClickMe(){
+        this.cardsService.getCards(this.deck.deck_id, this.cardsNumber).subscribe( pile  => {
+            this.pile = pile ;
+            console.log("pile: ", this.pile)
+            console.log("image: ", this.pile.cards[0].image)
+        });
+        
     }
 }

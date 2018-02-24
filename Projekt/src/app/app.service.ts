@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IDeck, ICards } from './deck.model';
+import { IDeck, IPile } from './deck.model';
 
 @Injectable()
 export class CardsService {
@@ -11,6 +11,6 @@ export class CardsService {
     }
 
     public getCards(deck_id: string, cardsNumber: number ) {
-        return this.http.get<ICards>(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=2`);
+        return this.http.get<IPile>(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=${cardsNumber}`);
     }
 }

@@ -5,7 +5,7 @@ export interface IDeck {
     remaining: number;
 }
 
-export interface ICards {
+export interface IPile {
     success: boolean;
     cards: [
         {
