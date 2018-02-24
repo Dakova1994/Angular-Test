@@ -25,6 +25,6 @@
   </div>
 </div>
 <div>
-  <input type="number" (input)="cardsNumber = $event.target.value" min="1" max="52">
+  <input type="number" (input)="numberOfDecks = $event.target.value" min="1" max="deck.remaining">
 </div>
-<button (click)="onClickMe()">Click me!</button>
+<button (click)="drawCards()">Draw!</button>
