@@ -12,19 +12,16 @@ export class AppComponent implements OnInit {
     title = 'app';
     pile: IPile;
     deck: IDeck;
-    cardsNumber: number=1;
+    cardsNumber = 1;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
             this.deck = shuffledDeck ;
         });
     }
-    onClickMe(){
+    onClickMe() {
         this.cardsService.getCards(this.deck.deck_id, this.cardsNumber).subscribe( pile  => {
             this.pile = pile ;
-            console.log("pile: ", this.pile)
-            console.log("image: ", this.pile.cards[0].image)
         });
-        
     }
 }
