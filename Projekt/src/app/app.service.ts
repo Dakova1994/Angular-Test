@@ -6,7 +6,7 @@ import { IDeck, IPile } from './deck.model';
 export class CardsService {
     constructor(private http: HttpClient ) {}
 
-    public getShuffledDeck(numberOfDecks: number = 0) {
+    public getShuffledDeck(numberOfDecks: number = 1 ) {
         return this.http.get<IDeck>('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
     }
 

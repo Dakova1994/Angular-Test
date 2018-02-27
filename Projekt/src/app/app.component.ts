@@ -11,7 +11,8 @@ export class AppComponent implements OnInit {
     public title = 'app';
     public pile: IPile;
     public deck: IDeck;
-    public numberOfDecks = 1;
+    public karty = [];
+    public numberOfDecks = 0;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
@@ -21,6 +22,8 @@ export class AppComponent implements OnInit {
     drawCards() {
         this.cardsService.getCards(this.deck.deck_id, this.numberOfDecks).subscribe( pile  => {
             this.pile = pile ;
+            this.karty.push(this.pile);
+            console.log(this.karty);
         });
     }
 }

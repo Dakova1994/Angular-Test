@@ -19,12 +19,16 @@
 </ul>
 
 <h2>Here is your cards</h2>
+  <div>
+    <input type="number" (input)="numberOfDecks = $event.target.value" min="1" max="deck.remaining">
+  </div>
+  <button (click)="drawCards()">Draw!</button>
 <div *ngIf="deck && pile">
   <div *ngFor="let card of pile.cards">
     <img src="{{card.image}}">
   </div>
 </div>
+<tr>suka
+</tr>
 <div>
-  <input type="number" (input)="numberOfDecks = $event.target.value" min="1" max="deck.remaining">
 </div>
-<button (click)="drawCards()">Draw!</button>
