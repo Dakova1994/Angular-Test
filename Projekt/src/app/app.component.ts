@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService} from './app.service';
-import { IDeck } from './deck.model';
+import { IDeck, IPile } from './deck.model';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,19 @@ import { IDeck } from './deck.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-	title = 'app';
-	twoCards: IDeck;
-	deck: IDeck;
-	constructor(private cardsService: CardsService) {}
-	ngOnInit() {
-		this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-			this.deck = shuffledDeck ;
-			console.log('moje rezultaty:', this.deck);
-			this.cardsService.getCards(this.deck.deck_id, this.deck.remaining).subscribe( newCards  =>{
-				this.twoCards = newCards ;
-				console.log('dwie karty:', this.twoCards);
-			});
-		});
-	}
+    public title = 'app';
+    public pile: IPile;
+    public deck: IDeck;
+    public numberOfDecks = 1;
+    constructor(private cardsService: CardsService) {}
+    ngOnInit() {
+        this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
+            this.deck = shuffledDeck ;
+        });
+    }
+    drawCards() {
+        this.cardsService.getCards(this.deck.deck_id, this.numberOfDecks).subscribe( pile  => {
+            this.pile = pile ;
+        });
+    }
 }
