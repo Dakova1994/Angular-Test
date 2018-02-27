@@ -10,7 +10,7 @@ export class CardsService {
         return this.http.get<IDeck>('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
     }
 
-    public getCards(deck_id: string, numberOfDecks: number ) {
-        return this.http.get<IPile>(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=${numberOfDecks}`);
+    public getCards(deck_id: string, numberOfCards: number ) {
+        return this.http.get<IPile>(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=${numberOfCards}`);
     }
 }
