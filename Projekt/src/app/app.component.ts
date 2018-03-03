@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
     public pile: IPile;
     public deck: IDeck;
     public drawnCards = [];
+    public myCards = [];
     public numberOfCards = 0;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
             this.pile = pile ;
             this.pile.cards.map(card => {
                 this.drawnCards.push(card);
+                console.log()
             })
         });
     }
