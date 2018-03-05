@@ -15,23 +15,73 @@
     border-bottom-width: 1px;
 }
 
+a{
+    margin-left: 13px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.inputDrawForm{
+    text-align: right;
+    float: right;
+    width: 100px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 30px;
+    border-radius: 20px;
+}
+
+
+label {
+    float: right;
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+  }
+
 .halfHomeForm{
     border: solid;
     border: seagreen;
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 30px;
     display: inline-block;
     position: relative;
-    margin: 1%;
     float: left;
-    width: 40%;
+    width: 44%;
     height: 400px;
+
 }
 .card-photo{
-    width: 65px;
+    width: 70px;
     float: left;
 }
 .panelForm{
     padding: 20px;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+.panelOption{
+    padding-top: 30px;
+}
+
+.remainingCards{
+    text-align: center;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.showCards{
+    font-size: 18px;
+    text-align: center;
+    border-left: grey;
+    border-left-style: solid;
+    border-left-width: 1px;
+    padding-left: 10px;
+    height: 450px;
+}
+
+.drawButton{
+    padding: 30px;
+
 }
