@@ -1,17 +1,14 @@
-<div class="conteiner">
+<div class="container">
 
-  <div class="menuForm">
+  <div class="menu">
     Home Profile
   </div>
-
-  <div class="halfHomeForm">
-
+  <div class="panel">
     Panel
-    <div class="panelForm">
-
-      Cards to draw:
-      <div class="inputDrawForm">
-        <input type="number" (input)="numberOfCards = $event.target.value" min="1" max="deck.remaining">
+    <div>
+      <span class="panel__elements">Cards to draw:</span>
+      <div>
+        <input type="number" (input)="numberOfCards = $event.target.value" min="1" max="currentDeck.remaining">
       </div>
 
       <div class="drawButton">
@@ -20,13 +17,13 @@
 
     </div>
   </div>
-  <div class="halfHomeForm">
+  <div class="panel">
     Info
 
-    <div class="showCards">
-      <div *ngIf="deck && pile">
+    <div>
+      <div *ngIf="currentDeck && currentPile">
           <div *ngFor="let card of drawnCards">
-            <img class="card-photo" src="{{card.image}}">
+            <img class="panel__card__photo" src="{{card.image}}">
          </div>
       </div>
     </div>
