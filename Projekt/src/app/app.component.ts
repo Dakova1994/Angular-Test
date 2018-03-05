@@ -9,23 +9,21 @@ import { IDeck, IPile } from './deck.model';
 })
 export class AppComponent implements OnInit {
     public title = 'app';
-    public pile: IPile;
-    public deck: IDeck;
+    public currentPile: IPile;
+    public currentDeck: IDeck;
     public drawnCards = [];
-    public myCards = [];
     public numberOfCards = 0;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-            this.deck = shuffledDeck ;
+            this.currentDeck = shuffledDeck ;
         });
     }
     drawCards() {
-        this.cardsService.getCards(this.deck.deck_id, this.numberOfCards).subscribe( pile  => {
-            this.pile = pile ;
-            this.pile.cards.map(card => {
+        this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
+            this.currentPile = pile ;
+            this.currentPile.cards.map(card => {
                 this.drawnCards.push(card);
-                console.log()
             })
         });
     }
