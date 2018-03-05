@@ -1,0 +1,37 @@
+.conteiner{
+    width: 80%;
+    padding: 10px 40px;
+    align-content: center;
+}
+
+.menuForm{
+    margin: 10px 10px 10px 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.halfHomeForm{
+    border: solid;
+    border: seagreen;
+    padding: 10px 10px;
+    font-size: 30px;
+    display: inline-block;
+    position: relative;
+    margin: 1%;
+    float: left;
+    width: 40%;
+    height: 400px;
+}
+.card-photo{
+    width: 65px;
+    float: left;
+}
+.panelForm{
+    padding: 20px;
+    font-size: 14px;
+}
