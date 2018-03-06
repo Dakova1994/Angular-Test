@@ -1,39 +1,38 @@
 <div class="container">
-
   <div class="menu">
    <a>Home</a> <a>Profile</a>
   </div>
-  <div class="panel">
-    Panel
-    <div>
-      <span class="panel__elements">Cards to draw:</span>
-      <div class="panelOption">Cards to draw:</div>
-      <input class="inputDrawForm" type="number" value="1" (input)="numberOfCards = $event.target.value" min="1" max="deck.remaining">
-      <div class="panelOption">New Deck:</div>
-      <label><input type="checkbox" name="checkbox" [(ngModel)]="isNewDeckChosen" (change)="isNextDeck()">Yes!</label>
-      
-      
-
-      
-      <div class="drawButton">
-        <button (click)="drawCards()">Draw!</button>
+  <div class="home__content">
+    <div class="home__content__element">
+      <span class="panel__title">Panel</span>
+      <div class="panel__element">
+        <span class="panel__elements">Cards to draw:</span>
       </div>
-
-
+      <div class="panel__element">
+        <input class="input__draw__form" type="number" value="1" (input)="numberOfCards = $event.target.value" min="1" max="deck.remaining">
+      </div>
+      <div class="panel__element">
+        <span class="panel__elements">New Deck:</span>
+      </div>
+      <div class="panel__element">
+        <span class="new__deck"><input type="checkbox" name="checkbox" [(ngModel)]="isNewDeckChosen" (change)="isNextDeck()">Yes! </span> 
+      </div>
+      <div class="panel__element">
+        <button class="draw__button" (click)="drawCards()">Draw!</button> 
+      </div>
     </div>
-  </div>
-  <div class="panel">
-      Info
-
-    <div class="remainingCards">
+  <div class="home__content__element border__left">
+    <span class="drawn__title">Info</span>
+    <div class="drawn__element">
       Remaning Cards: {{remainingCard()}}
-      
     </div>
+    <div class="drawn__element">
       Cards drawn:
-          <div *ngFor="let card of drawnCards">
-            <img class="panel__card__photo" src="{{card.image}}">
-         </div>
+      <div *ngFor="let card of drawnCards">
+        <img class="panel__card__photo" src="{{card.image}}">
       </div>
     </div>
   </div>
+  </div>
+
 </div>
