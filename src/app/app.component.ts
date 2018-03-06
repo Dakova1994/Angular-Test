@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     public currentDeck: IDeck;
     public drawnCards = [];
     public myCards = [];
-    public numberOfCards = 0;
+    public numberOfCards = 1;
     public x: number;
     public isNewDeckChosen: boolean=false;
     constructor(private cardsService: CardsService) {}
