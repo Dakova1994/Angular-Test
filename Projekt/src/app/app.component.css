@@ -15,17 +15,51 @@
     border-bottom-width: 1px;
 }
 
-.panel{
+a{
+    margin-left: 13px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.homeContent{
+    width: 800px;
+}
+.home__content__element{
     border: solid;
     border: seagreen;
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 30px;
     display: inline-block;
     position: relative;
-    margin: 1%;
     float: left;
     width: 40%;
     height: 400px;
+    
+}
+
+.border__left{
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: gray;
+
+}
+.panel__element{
+    height: 30px;
+}
+.new__deck{
+    float: right;
+    font-size: 18px;
+}
+
+.input__draw__form{
+    text-align: right;
+    float: right;
+    width: 100px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 30px;
+    border-radius: 20px;
 }
 .panel__card__photo{
     width: 65px;
@@ -33,5 +67,20 @@
 }
 .panel__elements{
     padding: 20px;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+.draw__button{
+    position: relative;
+    left: 40%;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 100px;
+
+}
+
+.drawn__element{
+    font-size: 18px;
+    text-align: center;
 }
