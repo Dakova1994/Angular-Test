@@ -1,5 +1,6 @@
 .container{
-    width: 80%;
+    width: 800px;
+    min-width: 800px;
     padding: 10px 40px;
     align-content: center;
 }
@@ -15,36 +16,7 @@
     border-bottom-width: 1px;
 }
 
-<<<<<<< HEAD
 .panel{
-=======
-a{
-    margin-left: 13px;
-}
-
-a:hover{
-    text-decoration: underline;
-}
-
-.inputDrawForm{
-    text-align: right;
-    float: right;
-    width: 100px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 30px;
-    border-radius: 20px;
-}
-
-
-label {
-    float: right;
-    display: block;
-    padding-left: 15px;
-    text-indent: -15px;
-  }
-
-.halfHomeForm{
->>>>>>> Created checkbox for drawn cards from new deck
     border: solid;
     border: seagreen;
     padding: 10px 20px;
@@ -56,13 +28,8 @@ label {
     height: 400px;
 
 }
-<<<<<<< HEAD
 .panel__card__photo{
     width: 65px;
-=======
-.card-photo{
-    width: 70px;
->>>>>>> Created checkbox for drawn cards from new deck
     float: left;
 }
 .panel__elements{
