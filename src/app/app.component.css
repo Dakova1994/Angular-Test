@@ -1,5 +1,6 @@
 .container{
     width: 80%;
+    min-width: 800px;
     padding: 10px 40px;
     align-content: center;
 }
