@@ -84,3 +84,10 @@ a:hover{
     font-size: 18px;
     text-align: center;
 }
+
+.empty__deck{
+    font-size: 18px;
+    color: red;
+    position: relative;
+    left: 30%;
+}
