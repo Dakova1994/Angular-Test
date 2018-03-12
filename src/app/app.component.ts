@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     public numberOfCards = 1;
     public x: number;
     public isNewDeckChosen: boolean=false;
+    public isEmptyDeck: string;
     constructor(private cardsService: CardsService) {}
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
@@ -23,6 +24,9 @@ export class AppComponent implements OnInit {
         });
     }
     drawCards() {
+        if(this.drawnCards.length>=52){
+            this.isEmptyDeck = 'Not enough cards to draw!'
+        }
         if(this.isNewDeckChosen){
             this.drawnCards=[];
             this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
