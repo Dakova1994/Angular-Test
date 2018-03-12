@@ -38,14 +38,7 @@ export class AppComponent implements OnInit {
         });
     
     }
-    isNextDeck(){
-        if(this.isNewDeckChosen){
-            this.isNewDeckChosen=false;
-        }
-        else{
-            this.isNewDeckChosen=true;
-        }
-    }
+
     remainingCard(){
         return 52-(this.drawnCards.length);
     }
