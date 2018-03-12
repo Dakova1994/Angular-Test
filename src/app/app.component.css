@@ -1,2 +1,9 @@
 
     min-width: 800px;
+
+.empty__deck{
+    font-size: 18px;
+    color: red;
+    position: relative;
+    left: 30%;
+}
