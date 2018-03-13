@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { CardsService} from './app.service';
+import { CardsService} from './cards.service';
 import { IDeck, IPile } from './deck.model';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    templateUrl: './cards.component.html',
+    styleUrls: ['./cards.component.css']
 })
-export class AppComponent implements OnInit {
+export class CardsComponent implements OnInit {
     public title = 'app';
     public currentPile: IPile;
     public currentDeck: IDeck;
     public drawnCards = [];
-    public numberOfCards = 0;
+    public myCards = [];
+    public numberOfCards = 1;
     public x: number;
     public isNewDeckChosen: boolean=false;
     constructor(private cardsService: CardsService) {}
@@ -22,24 +22,17 @@ export class AppComponent implements OnInit {
         });
     }
     drawCards() {
-<<<<<<< HEAD
+        if(this.isNewDeckChosen){
+            this.drawnCards=[];
+            this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
+                this.currentDeck = shuffledDeck ;
+            });
+        }
         this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
             this.currentPile = pile ;
             this.currentPile.cards.map(card => {
                 this.drawnCards.push(card);
-=======
-        if(this.isNewDeckChosen){
-            this.drawnCards=[];
-            this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-                this.deck = shuffledDeck ;
-            });
-        }
-        this.cardsService.getCards(this.deck.deck_id, this.numberOfCards).subscribe( pile  => {
-            this.pile = pile ;
-            this.pile.cards.map(card => {
-                this.drawnCards.push(card);
                 console.log(this.drawCards);
->>>>>>> Created checkbox for drawn cards from new deck
             })
         });
     
