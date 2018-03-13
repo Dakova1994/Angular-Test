@@ -6,18 +6,24 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app/app.component';
 import { CardsComponent } from './cards/cards.component';
+import { MenuComponent } from './menu/menu.component'
 
 import { CardsService } from './cards/cards.service';
 
 import { routes } from './app/routes';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    CardsComponent
+    CardsComponent,
+    MenuComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)
+    BrowserModule,
+    HttpClientModule, 
+    FormsModule, 
+    RouterModule.forRoot(routes)
   ],
   providers: [CardsService],
   bootstrap: [AppComponent]
