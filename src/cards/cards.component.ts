@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService} from './cards.service';
-import { IDeck, IPile } from './deck.model';
+import { IDeck, IPile, ICard } from './deck.model';
 import { delay } from 'q';
 
 @Component({
@@ -11,48 +11,61 @@ export class CardsComponent implements OnInit {
     public title = 'app';
     public currentPile: IPile;
     public currentDeck: IDeck;
-    public drawnCards = [];
-    public myCards = [];
-    public numberOfCards = 1;
-    public x: number;
-    public isNewDeckChosen: boolean=false;
-    public isEmptyDeck: string;
+    public drawnCards: ICard[] = [];
+    public numberOfCards: number = 1;
+    public isNewDeckChosen: boolean = false;
+    public error: string;
+
     constructor(private cardsService: CardsService) {}
+
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
             this.currentDeck = shuffledDeck ;
         });
     }
-    drawCards() {
-        console.log(this.currentDeck.remaining);    
-        if(this.remainingCard()-this.numberOfCards<=0){
-                this.isEmptyDeck = 'Not enough cards to draw!'
+    drawCards(): void {   
+        if (this.isRemainingCardsLessThanZero()) {
+            this.error = 'Not enough cards to draw!';
         } else {
-            this.isEmptyDeck = '';
+            this.error = '';
         }
         
-        if(this.isNewDeckChosen){
-            this.drawnCards=[];
-            this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-                this.currentDeck = shuffledDeck ;
-            });
+        if (this.isNewDeckChosen) {
+            this.cleanDrawnCards();
+            this.fetchNewDeck();
         }
+
+        this.addCardsToPile();
+    };
+    
+    addCardsToPile(): void {
         this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
             this.currentPile = pile ;
             this.currentPile.cards.map(card => {
                 this.drawnCards.push(card);
-                console.log(this.drawCards);
             })
         });
-    
-    }
+    };
 
-    isCheck(){
-        this.isEmptyDeck='';
-    }
+    fetchNewDeck(): void {
+        this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
+            this.currentDeck = shuffledDeck ;
+        });
+    };
 
-    remainingCard(){
-        return 52-(this.drawnCards.length);
-    }
-  
-}
+    cleanDrawnCards(): void {
+        this.drawnCards = [];
+    };
+
+    isRemainingCardsLessThanZero(): boolean {
+        return this.remainingCard() - this.numberOfCards <= 0;
+    };
+
+    isCheck(): void {
+        this.error = '';
+    };
+
+    remainingCard(): number {
+        return 52 - (this.drawnCards.length);
+    };
+};

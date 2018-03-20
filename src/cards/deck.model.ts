@@ -7,14 +7,14 @@ export interface IDeck {
 
 export interface IPile {
     success: boolean;
-    cards: [
-        {
-            image: string;
-            value: string;
-            suit: string;
-            code: string;
-        }
-    ];
+    cards: ICard[];
     deck_id: string;
     remaining: number;
+}
+
+export interface ICard {
+    image: string;
+    value: string;
+    suit: string;
+    code: string;
 }
