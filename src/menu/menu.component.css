@@ -1,0 +1,26 @@
+.container{
+    width: 100%;
+    padding: 10px 40px;
+    align-content: center;
+}
+
+.menu{
+    margin: 10px 10px 10px 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: inline-block;
+
+}
+
+a{
+    margin-left: 13px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
