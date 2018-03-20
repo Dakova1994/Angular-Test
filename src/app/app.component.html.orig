@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+<menu></menu>
+<router-outlet></router-outlet>
+=======
 <div class="container">
+  <div class="menu">
+   <a>Home</a> <a>Profile</a>
+  </div>
   <div class="home__content">
     <div class="home__content__element">
       <span class="panel__title">Panel</span>
@@ -12,13 +19,13 @@
         <span class="panel__elements">New Deck:</span>
       </div>
       <div class="panel__element">
-        <span class="new__deck"><input type="checkbox" name="checkbox" [(ngModel)]="isNewDeckChosen" (change)="isCheck()">Yes! </span> 
+        <span class="new__deck"><input type="checkbox" name="checkbox" [(ngModel)]="isNewDeckChosen" (change)="isNextDeck()">Yes! </span> 
       </div>
       <div class="panel__element">
         <button class="draw__button" (click)="drawCards()">Draw!</button> 
       </div>
-      <div>
-        {{error}}
+      <div class="panel__element">
+        <span class="empty__deck" >{{isEmptyDeck}}</span>
       </div>
     </div>
   <div class="home__content__element border__left">
@@ -36,3 +43,4 @@
   </div>
 
 </div>
+>>>>>>> Added statement if no more cards in deck

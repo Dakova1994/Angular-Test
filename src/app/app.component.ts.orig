@@ -1,0 +1,60 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',  
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+<<<<<<< HEAD
+export class AppComponent {
+  title = 'app';
+=======
+export class AppComponent implements OnInit {
+    public title = 'app';
+    public currentPile: IPile;
+    public currentDeck: IDeck;
+    public drawnCards = [];
+    public myCards = [];
+    public numberOfCards = 1;
+    public x: number;
+    public isNewDeckChosen: boolean=false;
+    public isEmptyDeck: string;
+    constructor(private cardsService: CardsService) {}
+    ngOnInit() {
+        this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
+            this.currentDeck = shuffledDeck ;
+        });
+    }
+    drawCards() {
+        if(this.drawnCards.length>=52){
+            this.isEmptyDeck = 'Not enough cards to draw!'
+        }
+        if(this.isNewDeckChosen){
+            this.drawnCards=[];
+            this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
+                this.currentDeck = shuffledDeck ;
+            });
+        }
+        this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
+            this.currentPile = pile ;
+            this.currentPile.cards.map(card => {
+                this.drawnCards.push(card);
+                console.log(this.drawCards);
+            })
+        });
+    
+    }
+    isNextDeck(){
+        if(this.isNewDeckChosen){
+            this.isNewDeckChosen=false;
+        }
+        else{
+            this.isNewDeckChosen=true;
+        }
+    }
+    remainingCard(){
+        return 52-(this.drawnCards.length);
+    }
+  
+>>>>>>> Added statement if no more cards in deck
+}
