@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CardsService} from './cards.service';
-import { IDeck, IPile } from './deck.model';
-import { delay } from 'q';
+import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: './cards.component.html',
-    styleUrls: ['./cards.component.css']
+  selector: 'app-root',  
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class CardsComponent implements OnInit {
+<<<<<<< HEAD
+export class AppComponent {
+  title = 'app';
+=======
+export class AppComponent implements OnInit {
     public title = 'app';
     public currentPile: IPile;
     public currentDeck: IDeck;
@@ -24,13 +26,9 @@ export class CardsComponent implements OnInit {
         });
     }
     drawCards() {
-        console.log(this.currentDeck.remaining);    
-        if(this.remainingCard()-this.numberOfCards<=0){
-                this.isEmptyDeck = 'Not enough cards to draw!'
-        } else {
-            this.isEmptyDeck = '';
+        if(this.drawnCards.length>=52){
+            this.isEmptyDeck = 'Not enough cards to draw!'
         }
-        
         if(this.isNewDeckChosen){
             this.drawnCards=[];
             this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
@@ -46,13 +44,17 @@ export class CardsComponent implements OnInit {
         });
     
     }
-
-    isCheck(){
-        this.isEmptyDeck='';
+    isNextDeck(){
+        if(this.isNewDeckChosen){
+            this.isNewDeckChosen=false;
+        }
+        else{
+            this.isNewDeckChosen=true;
+        }
     }
-
     remainingCard(){
         return 52-(this.drawnCards.length);
     }
   
+>>>>>>> Added statement if no more cards in deck
 }

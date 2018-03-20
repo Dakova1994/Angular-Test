@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-    public isEmptyDeck: string;
-        if(this.drawnCards.length>=52){
-            this.isEmptyDeck = 'Not enough cards to draw!'
-        }
 }
