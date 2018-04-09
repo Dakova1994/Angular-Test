@@ -2,7 +2,7 @@ describe('Home page', () => {
     context('Sample context', () => {
     
         before(() => {
-            cy.visit('/');
+            cy.openApp();
         });
         
         it('should url be correct', () => {
@@ -10,9 +10,7 @@ describe('Home page', () => {
         });
         
         it('should button be disabled when zero is being put into input', () => {
-            cy.get('.input__draw__form')
-                .clear()
-                .type('0');
+            cy.typeNumberOfCards(0);
             
             cy.contains('Draw!').then(el => {
                 expect(el).to.have.prop('disabled', true);
@@ -20,11 +18,7 @@ describe('Home page', () => {
         });
 
         it('should cards be drawn', () => {
-            cy.get('.input__draw__form')
-                .clear()
-                .type('2');
-            cy.contains('Draw!')
-                .click();
+            cy.drawCards(2);
 
             cy.get('.panel__card__photo').should('have.length', 2);
         });
@@ -36,11 +30,7 @@ describe('Home page', () => {
         });
 
         it('should all cards be drawn', () => {
-            cy.get('.input__draw__form')
-                .clear()
-                .type('50');
-            cy.contains('Draw!')
-                .click();
+            cy.drawCards(50);
 
             cy.get('.panel__card__photo').should('have.length', 52);
             cy.get('.drawn__element').then((el) => {
@@ -53,25 +43,15 @@ describe('Home page', () => {
         });
 
         it('should new deck be chosen', () => {
-            cy.get('input[name="checkbox"]')
-                .check();
-            cy.get('.input__draw__form')
-                .clear()
-                .type('1');
-            cy.contains('Draw!')
-                .click();
+            cy.checkNewDeck();
+            cy.drawCards(1);
 
             cy.get('.panel__card__photo').should('have.length', 1);
         });
 
         it('should remaining cards always be 0, if all cards are drawn', () => {
-            cy.get('input[name="checkbox"]')
-                .uncheck();
-            cy.get('.input__draw__form')
-                .clear()
-                .type('100');
-                cy.contains('Draw!')
-                .click();
+            cy.uncheckNewDeck();
+            cy.drawCards(100);
 
             cy.wait(2000);
             cy.get('.drawn__element').then((el) => {
