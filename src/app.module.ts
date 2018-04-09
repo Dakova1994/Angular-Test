@@ -11,13 +11,15 @@ import { MenuComponent } from './menu/menu.component'
 import { CardsService } from './cards/cards.service';
 
 import { routes } from './app/routes';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
