@@ -26,8 +26,10 @@ export class CardsComponent implements OnInit {
     drawCards(): void {   
         if (this.remainingCard() == 0) {
             this.error = 'Not enough cards to draw!';
+            this.isNewDeckChosen = true;
         } else {
             this.error = '';
+            this.isNewDeckChosen = false;
         }
         
         if (this.isNewDeckChosen) {
@@ -65,5 +67,6 @@ export class CardsComponent implements OnInit {
     remainingCard(): number {
         return 52 - (this.drawnCards.length);
     };
+
 
 };
