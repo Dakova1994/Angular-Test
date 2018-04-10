@@ -5,10 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build:prod": "ng build --prod",
     "test": "cypress open",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build": "ng build -app && http-server dist/ -p 3000"
   },
   "private": true,
   "dependencies": {
