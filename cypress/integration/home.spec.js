@@ -21,10 +21,21 @@ describe('Home page', () => {
                 expect(el).to.have.prop('disabled', true);
             });
         });
+
+        it('should enter click submit button', () => {
+            cy.typeNumberOfCards('4{enter}');
+
+            cy.get('.panel__card__photo').should('have.length', 4);
+        });
     });
 
     using(data, d => {
         context('Detailed', () => {
+            
+            before(() => {
+                cy.openApp();
+            });
+
             it('should cards be drawn', () => {
                 cy.drawCards(d.numberOfCardsToBeDrawn);
     
