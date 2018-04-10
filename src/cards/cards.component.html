@@ -12,7 +12,7 @@
         <span class="panel__elements">New Deck:</span>
       </div>
       <div class="panel__element">
-        <span class="new__deck"><input type="checkbox" name="checkbox" [(ngModel)]="isNewDeckChosen" (change)="isCheck()">Yes! </span> 
+        <span class="new__deck"><input type="checkbox" name="checkbox" (change)="isCheck()">Yes! </span> 
       </div>
       <div class="panel__element">
         <button class="draw__button" (click)="drawCards()">Draw!</button> 
