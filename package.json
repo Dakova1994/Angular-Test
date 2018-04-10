@@ -9,7 +9,7 @@
     "test": "cypress open",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build -app && http-server dist/ -p 3000"
+    "build": "ng build -app"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +35,6 @@
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "cypress": "^2.1.0",
-    "http-server": "^0.11.1",
     "jasmine-core": "~2.8.0",
     "jasmine-data-provider": "^2.2.0",
     "jasmine-spec-reporter": "~4.2.1",
