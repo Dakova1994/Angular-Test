@@ -12,7 +12,7 @@ export class CardsComponent implements OnInit {
     public currentPile: IPile;
     public currentDeck: IDeck;
     public drawnCards: ICard[] = [];
-    public numberOfCards: number = 1;
+    public numberOfCards: number;
     public isNewDeckChosen: boolean = false;
     public error: string;
 
@@ -24,6 +24,11 @@ export class CardsComponent implements OnInit {
         });
     }
     drawCards(): void {   
+        if (this.isNewDeckChosen) {
+            this.cleanDrawnCards();
+            this.fetchNewDeck();
+        }
+
         if (this.remainingCard() == 0) {
             this.error = 'Not enough cards to draw!';
             this.isNewDeckChosen = true;
@@ -32,12 +37,8 @@ export class CardsComponent implements OnInit {
             this.isNewDeckChosen = false;
         }
         
-        if (this.isNewDeckChosen) {
-            this.cleanDrawnCards();
-            this.fetchNewDeck();
-        }
-
         this.addCardsToPile();
+
     };
     
     addCardsToPile(): void {
@@ -65,7 +66,7 @@ export class CardsComponent implements OnInit {
     };
 
     remainingCard(): number {
-        return 52 - (this.drawnCards.length);
+        return 52 - this.drawnCards.length;
     };
 
 
