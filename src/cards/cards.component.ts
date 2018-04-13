@@ -34,8 +34,6 @@ export class CardsComponent implements OnInit {
         if (this.numberOfCards > this.getRemainingCardsNumber()) {
             this.error = 'Not enough cards to draw!';
         };
-        
-        console.log('')
     };
     
     addCardsToPile(): void {
@@ -70,9 +68,5 @@ export class CardsComponent implements OnInit {
 
     getRemainingCardsNumber(): number {
         return 52 - this.drawnCards.length;
-    };
-
-    isDeckTheSame(): boolean {
-
     };
 };
