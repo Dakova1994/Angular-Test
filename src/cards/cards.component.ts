@@ -12,7 +12,7 @@ export class CardsComponent implements OnInit {
     public currentPile: IPile;
     public currentDeck: IDeck;
     public drawnCards: ICard[] = [];
-    public numberOfCards: number;
+    public numberOfCards: number = 1;
     public isNewDeckChosen: boolean = false;
     public error: string;
 
@@ -27,32 +27,35 @@ export class CardsComponent implements OnInit {
         if (this.isNewDeckChosen) {
             this.cleanDrawnCards();
             this.fetchNewDeck();
-        }
-
-        if (this.remainingCard() == 0) {
-            this.error = 'Not enough cards to draw!';
-            this.isNewDeckChosen = true;
         } else {
-            this.error = '';
-            this.isNewDeckChosen = false;
+            this.addCardsToPile();
         }
         
-        this.addCardsToPile();
-
+        if (this.numberOfCards > this.getRemainingCardsNumber()) {
+            this.error = 'Not enough cards to draw!';
+        };
+        
+        console.log('')
     };
     
     addCardsToPile(): void {
         this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
-            this.currentPile = pile ;
+            this.currentPile = pile;
             this.currentPile.cards.map(card => {
                 this.drawnCards.push(card);
-            })
+            });
         });
     };
 
     fetchNewDeck(): void {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-            this.currentDeck = shuffledDeck ;
+            this.currentDeck = shuffledDeck;
+            this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
+                this.currentPile = pile;
+                this.currentPile.cards.map(card => {
+                    this.drawnCards.push(card);
+                });
+            });
         });
     };
 
@@ -65,9 +68,11 @@ export class CardsComponent implements OnInit {
         this.error = '';
     };
 
-    remainingCard(): number {
+    getRemainingCardsNumber(): number {
         return 52 - this.drawnCards.length;
     };
 
+    isDeckTheSame(): boolean {
 
+    };
 };
