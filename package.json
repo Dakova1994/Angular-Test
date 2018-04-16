@@ -12,7 +12,8 @@
     "test": "cypress open",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --prod"
+    "build": "ng build --prod",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
