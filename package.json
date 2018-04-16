@@ -1,6 +1,10 @@
 {
   "name": "projekt",
   "version": "0.0.0",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
