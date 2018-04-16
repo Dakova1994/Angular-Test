@@ -24,32 +24,36 @@ export class CardsComponent implements OnInit {
         });
     }
     drawCards(): void {   
-        if (this.isRemainingCardsLessThanZero()) {
-            this.error = 'Not enough cards to draw!';
-        } else {
-            this.error = '';
-        }
-        
         if (this.isNewDeckChosen) {
             this.cleanDrawnCards();
             this.fetchNewDeck();
+        } else {
+            this.addCardsToPile();
         }
-
-        this.addCardsToPile();
+        
+        if (this.numberOfCards > this.getRemainingCardsNumber()) {
+            this.error = 'Not enough cards to draw!';
+        };
     };
     
     addCardsToPile(): void {
         this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
-            this.currentPile = pile ;
+            this.currentPile = pile;
             this.currentPile.cards.map(card => {
                 this.drawnCards.push(card);
-            })
+            });
         });
     };
 
     fetchNewDeck(): void {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
-            this.currentDeck = shuffledDeck ;
+            this.currentDeck = shuffledDeck;
+            this.cardsService.getCards(this.currentDeck.deck_id, this.numberOfCards).subscribe( pile  => {
+                this.currentPile = pile;
+                this.currentPile.cards.map(card => {
+                    this.drawnCards.push(card);
+                });
+            });
         });
     };
 
@@ -57,15 +61,12 @@ export class CardsComponent implements OnInit {
         this.drawnCards = [];
     };
 
-    isRemainingCardsLessThanZero(): boolean {
-        return this.remainingCard() - this.numberOfCards <= 0;
-    };
 
     isCheck(): void {
         this.error = '';
     };
 
-    remainingCard(): number {
-        return 52 - (this.drawnCards.length);
+    getRemainingCardsNumber(): number {
+        return 52 - this.drawnCards.length;
     };
 };
