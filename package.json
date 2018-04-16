@@ -13,7 +13,7 @@
     "test": "cypress open",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build -app"
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {
