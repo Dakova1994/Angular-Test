@@ -9,11 +9,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port process.env.PORT",
-    "build:prod": "ng build --prod",
     "test": "cypress open",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build"
+    "build": "ng build --prod"
   },
   "private": true,
   "dependencies": {
