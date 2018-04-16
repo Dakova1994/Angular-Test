@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port process.env.PORT || 4200",
+    "start": "ng serve --port process.env.PORT",
     "build:prod": "ng build --prod",
     "test": "cypress open",
     "lint": "ng lint",
