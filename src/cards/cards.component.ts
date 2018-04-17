@@ -12,11 +12,23 @@ export class CardsComponent implements OnInit {
     public currentPile: IPile;
     public currentDeck: IDeck;
     public drawnCards: ICard[] = [];
-    public numberOfCards: number = 1;
+    public numberOfCards: number ;
     public isNewDeckChosen: boolean = false;
     public error: string;
+    public buttonDisabled: boolean = false;
 
     constructor(private cardsService: CardsService) {}
+
+    onInput(value:number){
+    this.numberOfCards = value;
+    if(this.numberOfCards != 0){
+        this.buttonDisabled = false;
+    }
+    else{
+        this.buttonDisabled = true;
+    }
+
+    }
 
     ngOnInit() {
         this.cardsService.getShuffledDeck().subscribe( shuffledDeck  => {
